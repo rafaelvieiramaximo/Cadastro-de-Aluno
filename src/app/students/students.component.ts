@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../student';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StudentService } from '../student.service';
+import { subscribeOn } from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -33,6 +34,9 @@ export class StudentsComponent implements OnInit {
     })
   }
   save() {
-    this.students.push(this.formsGroupStudent.value);
+    this.service.save(this.formsGroupStudent.value).subscribe({
+      next : data => this.students.push(data)
+    });
+
   }
 }
