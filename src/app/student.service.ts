@@ -8,16 +8,24 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class StudentService {
 
-    ulr = "http://localhost:3000/students";
+    url = "http://localhost:3000/students/";
 
   constructor(private http : HttpClient) { }
 
   getStudents() : Observable<Student[]>{
     
-    return this.http.get<Student[]>(this.ulr);
+    return this.http.get<Student[]>(this.url);
     
   }
   save(student :Student) : Observable <Student>{
-    return this.http.post<Student>(this.ulr, student)
+    return this.http.post<Student>(this.url, student)
   }
-}
+
+  delete(student:Student) : Observable<void>{
+    return this.http.delete<void>(`${this.url}/${student.id}`)
+  }
+
+  update(student :Student): Observable <Student>{
+    return this.http.put<Student>(`${this.url}/${student.id}`,student);
+  }
+} 

@@ -1,8 +1,22 @@
 {
-    "students": [
-      { "id": 1, "name": "Anna Hickman", "course": "Engenharia" },
-      { "id": 2, "name": "Post Malone", "course": "Mecânica" },
-      { "id": 3, "name": "Maiara", "course": "Química" }
-    ]
-    
-  }
+  "students": [
+    {
+      "id": 1,
+      "name": "Rafael",
+      "email": "rafavmaximo",
+      "course": "ADS"
+    },
+    {
+      "id": 2,
+      "name": "Biel",
+      "email": "bielzinho",
+      "course": "GTO"
+    },
+    {
+      "id": 3,
+      "name": "Romario",
+      "email": "romarinho",
+      "course": "Engenharia"
+    }
+  ]
+}

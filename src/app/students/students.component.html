@@ -4,11 +4,6 @@
             <h1 class="text-center">Cadastro de Alunos</h1>
             <form [formGroup]="formsGroupStudent">
                 <div class="mb-3">
-                    <label for="matricula" class="form-label">Matrícula</label>
-                    <input type="text" class="form-control" id="matricula" formControlName="id">
-                    <div id="registrationHelp" class="form-text">Essa informação é confidencial.</div>
-                </div>
-                <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" formControlName="name">
                     <div id="nameHelp" class="form-text">Deve-se colocar o nome completo do Aluno.</div>
@@ -23,7 +18,7 @@
                     <input type="text" class="form-control" id="curso" formControlName="course">
                     <div id="nameHelp" class="form-text">Deve-se colocar um curso válido.</div>
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+                <button type="submit" class="btn btn-primary p-2" (click)="save()">Salvar</button>
             </form>
         </div>
         <div class="col-9 m-auto mt-4">
@@ -34,6 +29,7 @@
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Curso</th>
+                        <th scope="col" class="text-center">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +38,10 @@
                         <td>{{student.name}}</td>
                         <td>{{student.email}}</td>
                         <td>{{student.course}}</td>
+                        <td class="d-flex justify-content-evenly">
+                            <button type="button" class="btn btn-danger" (click)="delete(student)">Remover</button>
+                            <button type="button" class="btn btn-dark" (click)="edit(student)">Alterar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
