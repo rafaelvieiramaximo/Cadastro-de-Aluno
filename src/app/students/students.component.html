@@ -1,4 +1,4 @@
-<div class="container bg-primary-subtle p-4 t-2">
+<div class="container bg-success-subtle p-4 t-2 my-4">
     <div class="row">
         <div class="col-6 m-auto">
             <h1 class="text-center">Cadastro de Alunos</h1>
@@ -6,7 +6,12 @@
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" formControlName="name">
-                    <div id="nameHelp" class="form-text">Deve-se colocar o nome completo do Aluno.</div>
+                    <small class="text-danger" *ngIf="isError && name.hasError('minlength')">
+                        *Nome tem que no mínimo 3 caracteres
+                    </small>
+                    <small class="text-danger" *ngIf="isError && name.hasError('required')">
+                        *O nome é necessário
+                    </small>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Endereço de e-mail</label>
@@ -16,7 +21,9 @@
                 <div class="mb-3">
                     <label for="curso" class="form-label">Curso</label>
                     <input type="text" class="form-control" id="curso" formControlName="course">
-                    <div id="nameHelp" class="form-text">Deve-se colocar um curso válido.</div>
+                    <small class="text-danger" *ngIf="isError && course.hasError('required')">
+                        *Campo requerido!!
+                    </small>
                 </div>
                 <button type="submit" class="btn btn-primary p-2" (click)="save()">Salvar</button>
             </form>

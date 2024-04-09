@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../student';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../student.service';
 import { subscribeOn } from 'rxjs';
 
@@ -16,14 +16,16 @@ export class StudentsComponent implements OnInit {
 
   isEditing: boolean = false;
 
+  isError :boolean = false;
+
   constructor(private formBuilder: FormBuilder,
     private service: StudentService) {
 
     this.formsGroupStudent = formBuilder.group({
       id: [''],
-      name: [''],
+      name: ['', [Validators.minLength(3), Validators.required]],
       email: [''],
-      course: ['']
+      course: ['', [Validators.required,]]
     })
   }
   ngOnInit(): void {
@@ -36,23 +38,27 @@ export class StudentsComponent implements OnInit {
     })
   }
   save() {
-    if (this.isEditing) {
-      this.service.update(this.formsGroupStudent.value).subscribe({
-        next: () => {
-          this.loadStudent();
-          this.isEditing = false;
-        }
+    if (this.formsGroupStudent.valid) {
+      if (this.isEditing) {
+        this.service.update(this.formsGroupStudent.value).subscribe({
+          next: () => {
+            this.loadStudent();
+            this.isEditing = false;
+            this.isError = false;
+          }
+        })
       }
-      )
-    }
-    else {
-      this.service.save(this.formsGroupStudent.value).subscribe({
-        next: data => this.students.push(data)
-      });
-      this.formsGroupStudent.reset();
+      else {
+        this.service.save(this.formsGroupStudent.value).subscribe({
+          next: data => this.students.push(data)
+        });
+        this.formsGroupStudent.reset();
+        this.isError = false;
+      }
+    }else{
+      this.isError= true
     }
   }
-
   delete(student: Student) {
     this.service.delete(student).subscribe({
       next: () => this.loadStudent()
@@ -63,4 +69,12 @@ export class StudentsComponent implements OnInit {
     this.formsGroupStudent.setValue(student);
     this.isEditing = true;
   }
-}
+
+  get name(): any {
+    return this.formsGroupStudent.get("name");
+  }
+  get course(): any {
+    return this.formsGroupStudent.get("course");
+  }
+
+  }

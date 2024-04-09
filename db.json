@@ -17,6 +17,24 @@
       "name": "Romario",
       "email": "romarinho",
       "course": "Engenharia"
+    },
+    {
+      "id": 4,
+      "name": "Carlos",
+      "email": "carlos.magno",
+      "course": "a"
+    },
+    {
+      "id": 5,
+      "name": "RRR",
+      "email": null,
+      "course": "A"
+    },
+    {
+      "id": 6,
+      "name": "RRR",
+      "email": null,
+      "course": "A"
     }
   ]
 }
