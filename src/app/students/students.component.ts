@@ -44,7 +44,7 @@ export class StudentsComponent implements OnInit {
           next: () => {
             this.loadStudent();
             this.isEditing = false;
-            this.isError = false;
+            this.formsGroupStudent.reset();
           }
         })
       }
@@ -53,7 +53,6 @@ export class StudentsComponent implements OnInit {
           next: data => this.students.push(data)
         });
         this.formsGroupStudent.reset();
-        this.isError = false;
       }
     }else{
       this.isError= true

@@ -3,38 +3,44 @@
     {
       "id": 1,
       "name": "Rafael",
-      "email": "rafavmaximo",
+      "email": "rafavmaximo@",
       "course": "ADS"
     },
     {
       "id": 2,
       "name": "Biel",
-      "email": "bielzinho",
-      "course": "GTO"
+      "email": "bielzinho@",
+      "course": "Gestão de Sistemas de informação"
     },
     {
       "id": 3,
       "name": "Romario",
-      "email": "romarinho",
+      "email": "romarinho@",
       "course": "Engenharia"
     },
     {
       "id": 4,
       "name": "Carlos",
-      "email": "carlos.magno",
-      "course": "a"
+      "email": "carlos.magno@",
+      "course": "Culinária"
     },
     {
       "id": 5,
-      "name": "RRR",
-      "email": null,
-      "course": "A"
+      "name": "Bilelo",
+      "email": "bilelinho@",
+      "course": "ADS"
     },
     {
       "id": 6,
-      "name": "RRR",
-      "email": null,
-      "course": "A"
+      "name": "Roberto",
+      "email": "robertinho@",
+      "course": "Eventos"
+    },
+    {
+      "id": 9,
+      "name": "rafael",
+      "email": "",
+      "course": "ADS"
     }
   ]
 }

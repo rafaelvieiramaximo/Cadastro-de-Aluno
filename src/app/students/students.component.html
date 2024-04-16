@@ -6,26 +6,27 @@
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" formControlName="name">
-                    <small class="text-danger" *ngIf="isError && name.hasError('minlength')">
+                    <small class="text-danger" *ngIf="name.touched && name.hasError('minlength')">
                         *Nome tem que no mínimo 3 caracteres
                     </small>
-                    <small class="text-danger" *ngIf="isError && name.hasError('required')">
+                    <small class="text-danger" *ngIf="name.touched && name.hasError('required')">
                         *O nome é necessário
                     </small>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Endereço de e-mail</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        formControlName="email">
                     <div id="emailHelp" class="form-text">Esse e-mail é confidencial.</div>
                 </div>
                 <div class="mb-3">
                     <label for="curso" class="form-label">Curso</label>
                     <input type="text" class="form-control" id="curso" formControlName="course">
-                    <small class="text-danger" *ngIf="isError && course.hasError('required')">
+                    <small class="text-danger" *ngIf="course.touched && course.hasError('required')">
                         *Campo requerido!!
                     </small>
                 </div>
-                <button type="submit" class="btn btn-primary p-2" (click)="save()">Salvar</button>
+                <button type="submit" class="btn btn-primary p-2" [disabled]="!formsGroupStudent.valid" (click)="save()">Salvar</button>
             </form>
         </div>
         <div class="col-9 m-auto mt-4">
